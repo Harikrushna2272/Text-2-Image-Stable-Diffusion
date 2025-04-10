@@ -43,6 +43,4 @@ This project allows users to generate images from text using **Stable Diffusion 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Harikrushna2272/text-to-image-lora.git
-cd text-to-image-lora
-
+git clone https://github.com/Harikrushna2272/Text-2-Image-Stable-Diffusion_LoRa
