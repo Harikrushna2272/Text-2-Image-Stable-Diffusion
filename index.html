@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Image Generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-dragon"></i> Pokémon Image Generator</h1>
+            <p>Create unique Pokémon with AI - just describe what you want!</p>
+        </header>
+
+        <div class="generator-card">
+            <div class="input-group">
+                <label for="prompt">Describe your Pokémon:</label>
+                <textarea id="prompt" placeholder="A bubbly Pokémon with a round, smiling face..."></textarea>
+                
+                <div class="examples">
+                    <span>Examples:</span>
+                    <div class="example-prompt">A fiery dragon Pokémon with large wings</div>
+                    <div class="example-prompt">A cute water Pokémon with big eyes</div>
+                    <div class="example-prompt">An electric fox Pokémon with sparks</div>
+                </div>
+            </div>
+
+            <div class="customization-options">
+
+                <div class="control-group">
+                    <label for="backend-url">Backend Server URL:</label>
+                    <input type="text" id="backend-url" placeholder="http://localhost:5000" value="http://localhost:5000">
+                </div>
+            
+                <div class="control-group">
+                    <label for="style">Art Style:</label>
+                    <select id="style">
+                        <option value="default">Default</option>
+                        <option value="realistic">Realistic</option>
+                        <option value="cartoon">Cartoon</option>
+                        <option value="pixel">Pixel Art</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="style">Art Style:</label>
+                    <select id="style">
+                        <option value="default">Default</option>
+                        <option value="realistic">Realistic</option>
+                        <option value="cartoon">Cartoon</option>
+                        <option value="pixel">Pixel Art</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="color">Dominant Color:</label>
+                    <input type="color" id="color" value="#ff0000">
+                </div>
+
+                <div class="control-group">
+                    <label for="size">Size:</label>
+                    <input type="range" id="size" min="0" max="2" value="1">
+                    <div>
+                        <span>Tiny</span>
+                        <span id="size-value">Medium</span>
+                        <span>Large</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="background">Background:</label>
+                    <select id="background">
+                        <option value="none">None</option>
+                        <option value="forest">Forest</option>
+                        <option value="volcano">Volcano</option>
+                        <option value="ocean">Ocean</option>
+                        <option value="space">Space</option>
+                    </select>
+                </div>
+            </div>
+            
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="steps">Quality Level:</label>
+                    <input type="range" id="steps" min="2" max="100" value="50">
+                    <div>
+                        <span>Faster</span>
+                        <span id="steps-value">50</span>
+                        <span>Better</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="guidance">Creativity:</label>
+                    <input type="range" id="guidance" min="5" max="12" step="0.5" value="7.5">
+                    <div>
+                        <span>More</span>
+                        <span id="guidance-value">7.5</span>
+                        <span>Less</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="generate-btn" class="btn btn-generate">
+                    <i class="fas fa-magic"></i> Generate Pokémon
+                </button>
+                <button id="reset-btn" class="btn btn-reset">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+            </div>
+
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Creating your Pokémon... <span id="progress-text">0%</span></p>
+            </div>
+
+            <div class="result-area">
+                <div class="pokemon-placeholder">
+                    <i class="fas fa-image"></i>
+                </div>
+                <img id="generated-image" class="generated-image" src="" alt="Generated Pokémon">
+            </div>
+        </div>
+
+        <div id="history-section">
+            <h2>Your Recent Creations</h2>
+            <div class="gallery" id="gallery">
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by Stable Diffusion with Pokémon LoRA fine-tuning</p>
+            <p>Created with ❤️ for Pokémon fans</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
